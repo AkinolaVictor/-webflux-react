@@ -4,8 +4,8 @@
   "description": "A web animation components library ",
   "license": "MIT",
   "author": "Akinola Victor",
-  "type": "commonjs",
-  "main": "index.js",
+  "main": "build/index.js",
+  "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-lib": "rollup -c"
