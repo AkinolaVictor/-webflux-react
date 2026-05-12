@@ -8,7 +8,8 @@
   "module": "dist/index.es.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-lib": "rollup -c"
+    "build-lib": "rollup -c",
+    "git": "git add . && git commit -m 'message' && git push @webflux/react master"
   },
   "peerDependencies": {
     "react": "^17.0.1",
