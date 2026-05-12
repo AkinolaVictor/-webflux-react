@@ -1,0 +1,33 @@
+{
+  "name": "@webflux/react",
+  "version": "1.0.0",
+  "description": "A web animation components library ",
+  "license": "MIT",
+  "author": "Akinola Victor",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-lib": "rollup -c"
+  },
+  "peerDependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "dependencies": {
+    "gsap": "^3.15.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-react": "^7.28.5",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "babel-loader": "^10.1.1",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "rollup": "^2.80.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2"
+  }
+}
