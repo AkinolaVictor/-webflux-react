@@ -3,9 +3,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
 import React, { ReactElement, RefObject, useEffect, useRef } from 'react'
 
+interface Props {
+    children: ReactElement<{
+        className?: string;
+        ref?: React.Ref<HTMLElement>;
+    }>,
+    speed?: number | string,
+    delay?: number,
+    duration?: number,
+    animateOnScroll?: boolean,
+    scrub?: boolean,
+    // speed?: any
+}
+
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-function TextAnimationTemplate(props) {
+function TextAnimationTemplate(props: Props) {
     const {
         children,
         speed=0.05,
@@ -18,7 +31,7 @@ function TextAnimationTemplate(props) {
     const stagger = speed=="fast"?0.02:
                             speed=="slow"?0.008:
                             0.05
-    const containerRef = useRef<HTMLElement>(null)
+    const containerRef: RefObject<HTMLElement | null> = useRef<HTMLElement>(null)
 
     function animator_func(){
         const el = containerRef.current
@@ -51,7 +64,7 @@ function TextAnimationTemplate(props) {
             return lineChars.map((char, charIndexInLine)=>({char, charIndexInLine}))
         })
 
-        const animate = (tl)=>{
+        const animate = (tl:any)=>{
             if(!tl) return null
             
             // loop through each line and apply styles to each character sequentially
