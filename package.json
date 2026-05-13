@@ -1,6 +1,6 @@
 {
   "name": "react-web-flux",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "A web animation components library ",
   "license": "MIT",
   "author": "Akinola Victor",
@@ -26,8 +26,8 @@
     "web components"
   ],
   "peerDependencies": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": ">=17.0.1",
+    "react-dom": ">=17.0.1"
   },
   "dependencies": {
     "@types/react": "^19.2.14",
