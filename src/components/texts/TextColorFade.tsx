@@ -13,12 +13,11 @@ interface Props {
     duration?: number,
     animateOnScroll?: boolean,
     scrub?: boolean,
-    // speed?: any
 }
 
 gsap.registerPlugin(SplitText, ScrollTrigger)
 
-function TextAnimationTemplate2(props: Props) {
+function TextColorFade(props: Props) {
     const {
         children,
         speed=0.05,
@@ -27,14 +26,11 @@ function TextAnimationTemplate2(props: Props) {
         animateOnScroll=false,
         scrub=false,
     } = props
-
-    const stagger = speed=="fast"?0.02:
-                            speed=="slow"?0.008:
-                            0.05
     const containerRef: RefObject<HTMLElement | null> = useRef<HTMLElement>(null)
 
     function animator_func(){
         const el = containerRef.current
+        // const el = ".text-parentz"
         if(!el) return
         
         const splitRef = SplitText.create(el, {
@@ -45,57 +41,54 @@ function TextAnimationTemplate2(props: Props) {
             autoSplit: true,
         })
 
-        const {chars, lines} = splitRef
+        const {chars, lines, words} = splitRef
+
+        // const whichToAnimate = words
+        // const whichToAnimate = lines
+        const whichToAnimate = chars
 
         // initialize styles of each character
-        gsap.set(chars, {
-            x: 100,
-            opacity: 0,
-            skewX: 70
-        })
-
-        // set each character in a line into an array
-        // number of array = number of lines,
-        // total number of elements in each array is equal to the total number of characters in that line
-        const charMeta = lines.flatMap((line)=>{
-            const lineChars = chars.filter((c)=>{
-                return line.contains(c)
-            })
-            return lineChars.map((char, charIndexInLine)=>({char, charIndexInLine}))
+        gsap.set(whichToAnimate, {
+            // x: 100,
+            opacity: 0.4,
+            // color: "rosybrown",
+            // skewX: 50
         })
 
         const animate = (tl:any)=>{
             if(!tl) return null
             
             // loop through each line and apply styles to each character sequentially
-            charMeta.forEach(({char, charIndexInLine})=>{
+            // charMeta.forEach(({char, charIndexInLine})=>{
+            whichToAnimate.forEach((char, charIndexInLine)=>{
                 tl.to(
                     char,
                     {
-                        x: 0,
                         opacity: 1,
-                        skewX: 0,
-                        color: "yellow",
-                        ease: "power3.out"
+                        // color: "white",
+                        // color: "yellow",
+                        ease: "power3.out",
+                        // skewX: 0
                     },
-                    charIndexInLine*stagger
+                    charIndexInLine*0.05
                 )
             })
             
             return tl
         }
+
         
         if(scrub){
+            
             const tl = gsap.timeline({paused: true, delay})
-            animate(tl)
-
             ScrollTrigger.create({
                 trigger: el,
                 start: "top 90%",
-                end: "top 45%",
+                end: "top 35%",
                 scrub: true,
                 animation: tl
             })
+            animate(tl)
 
             return splitRef.revert
         }
@@ -116,7 +109,7 @@ function TextAnimationTemplate2(props: Props) {
 
 
 
-        const tl = gsap.timeline({delay})
+        const tl = gsap.timeline({delay:0})
         animate(tl)
 
         return splitRef.revert
@@ -126,14 +119,29 @@ function TextAnimationTemplate2(props: Props) {
         return animator_func()
     }, [])
 
+    return (
+        React.cloneElement(children, {
+            ref: containerRef,
+            className: [
+                children.props.className, 
+                "text-parentz"
+            ].filter(Boolean).join(" ")
+        })
+    )
 
-    return React.cloneElement(children, {
-        ref: containerRef,
-        className: [
-            children.props.className, 
-            "animated-header"
-        ].filter(Boolean).join(" ")
-    })
+    // return (
+    //     <div className='w-full h-screen bg-black text-black flex flex-col justify-center items-center'>
+    //         {
+    //             React.cloneElement(children, {
+    //                 ref: containerRef,
+    //                 className: [
+    //                     children.props.className, 
+    //                     "text-parentz"
+    //                 ].filter(Boolean).join(" ")
+    //             })
+    //         }
+    //     </div>
+    // )
 }
 
-export default TextAnimationTemplate2
+export default TextColorFade

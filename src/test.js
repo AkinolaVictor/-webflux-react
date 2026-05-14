@@ -1,3 +1,16 @@
-// import { TextAnimationTemplate } from "../dist_";
+// import React from 'react'
 
-// TextAnimationTemplat
+import { justSayHello, TextAnimationTemplate, TextColorFade } from "."
+
+function Test() {
+    // justSayHello
+    
+    return (
+        <>
+            <TextColorFade ></TextColorFade>
+            <TextAnimationTemplate></TextAnimationTemplate>
+        </>
+    )
+}
+
+export default Test
