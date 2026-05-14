@@ -128,20 +128,6 @@ function TextColorFade(props: Props) {
             ].filter(Boolean).join(" ")
         })
     )
-
-    // return (
-    //     <div className='w-full h-screen bg-black text-black flex flex-col justify-center items-center'>
-    //         {
-    //             React.cloneElement(children, {
-    //                 ref: containerRef,
-    //                 className: [
-    //                     children.props.className, 
-    //                     "text-parentz"
-    //                 ].filter(Boolean).join(" ")
-    //             })
-    //         }
-    //     </div>
-    // )
 }
 
 export default TextColorFade
