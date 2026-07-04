@@ -23,7 +23,7 @@
 .DS_Store
 *.pem
 
-.txt
+2fa.txt
 /dist
 
 # debug
