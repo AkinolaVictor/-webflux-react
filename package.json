@@ -10,7 +10,7 @@
   "scripts": {
     "build-lib2": "rollup -c",
     "build-lib": "rollup -c --bundleConfigAsCjs",
-    "git": "git add . && git commit -m 'more_animations' && git push @webflux/react master",
+    "git": "git add . && git commit -m 'updated' && git push origin master",
     "build-publish": "npm run build-lib2 && npm run git && npm publish"
   },
   "repository": {
