@@ -5,9 +5,9 @@ export function justSayHello({name}: {name: string}){
 } 
 
 export const {
-    TextAnimationTemplate, 
-    TextColorFade,
-    TextRevealByHeight,
+    // TextAnimationTemplate, 
+    // TextColorFade,
+    // TextRevealByHeight,
 
     TextEngine,
     TextFade,
