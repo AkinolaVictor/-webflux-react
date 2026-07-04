@@ -16,7 +16,6 @@ interface Props {
     // speed?: any
 }
 
-gsap.registerPlugin(SplitText, ScrollTrigger)
 
 function TextAnimationTemplate(props: Props) {
     const {
@@ -27,13 +26,14 @@ function TextAnimationTemplate(props: Props) {
         animateOnScroll=false,
         scrub=false,
     } = props
-
+    
     const stagger = speed=="fast"?0.02:
-                            speed=="slow"?0.008:
-                            0.05
+                    speed=="slow"?0.008:
+                    0.05
     const containerRef: RefObject<HTMLElement | null> = useRef<HTMLElement>(null)
-
+    
     function animator_func(){
+        gsap.registerPlugin(SplitText, ScrollTrigger)
         const el = containerRef.current
         if(!el) return
         

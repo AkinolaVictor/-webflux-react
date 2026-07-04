@@ -1,5 +1,5 @@
 import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import React, { ReactElement, RefObject, useEffect, useRef } from 'react'
 
 interface Props {
@@ -8,15 +8,15 @@ interface Props {
         ref?: React.Ref<HTMLElement>;
     }>,
 }
-gsap.registerPlugin(ScrollTrigger)
 
 function TextRevealByHeight(props: Props) {
     const {children} = props
     const containerRef: RefObject<HTMLElement | null> = useRef<HTMLElement>(null)
     const heightRef: RefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
-
+    
     function animate_func(){
         const el = heightRef.current
+        gsap.registerPlugin(ScrollTrigger)
 
         gsap.fromTo(el, 
             {

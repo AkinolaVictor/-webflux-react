@@ -1,6 +1,6 @@
 {
   "name": "react-web-flux",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "A web animation components library ",
   "license": "MIT",
   "author": "Akinola Victor",
@@ -10,7 +10,8 @@
   "scripts": {
     "build-lib2": "rollup -c",
     "build-lib": "rollup -c --bundleConfigAsCjs",
-    "git": "git add . && git commit -m 'using-ts' && git push @webflux/react master"
+    "git": "git add . && git commit -m 'using-ts' && git push @webflux/react master",
+    "build-publish": "npm run build-lib2 && npm run git && npm publish"
   },
   "repository": {
     "type": "git",
@@ -19,19 +20,22 @@
   "bugs": {
     "url": "https://https://github.com/AkinolaVictor/-webflux-react"
   },
-  "homepage": "https://https://github.com/AkinolaVictor/-webflux-react",
+  "homepage": "https://webflux-rouge.vercel.app/",
   "keywords": [
     "react",
     "web animation",
-    "web components"
+    "web components",
+    "webflux",
+    "flux"
   ],
   "peerDependencies": {
     "react": ">=17.0.1",
     "react-dom": ">=17.0.1"
   },
   "dependencies": {
+    "@gsap/react": "^2.1.2",
     "@types/react": "^19.2.14",
-    "gsap": "^3.15.0"
+    "gsap": "3.15.0"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

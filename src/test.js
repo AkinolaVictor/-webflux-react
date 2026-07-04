@@ -1,14 +1,17 @@
 // import React from 'react'
 
-import { justSayHello, TextAnimationTemplate, TextColorFade } from "."
+import { TextAnimationTemplate, TextRevealByHeight } from "."
 
 function Test() {
     // justSayHello
+    // TextAnimationTemplate
+    // TextRevealByHeight
     
     return (
         <>
-            <TextColorFade ></TextColorFade>
-            <TextAnimationTemplate></TextAnimationTemplate>
+            {/* <TextColorFade ></TextColorFade>
+            <TextAnimationTemplate></TextAnimationTemplate> */}
+            
         </>
     )
 }

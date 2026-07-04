@@ -15,20 +15,18 @@ interface Props {
     scrub?: boolean,
 }
 
-gsap.registerPlugin(SplitText, ScrollTrigger)
 
 function TextColorFade(props: Props) {
     const {
         children,
-        speed=0.05,
         delay=0,
-        duration=0.65,
         animateOnScroll=false,
         scrub=false,
     } = props
     const containerRef: RefObject<HTMLElement | null> = useRef<HTMLElement>(null)
-
+    
     function animator_func(){
+        gsap.registerPlugin(SplitText, ScrollTrigger)
         const el = containerRef.current
         // const el = ".text-parentz"
         if(!el) return
@@ -119,15 +117,13 @@ function TextColorFade(props: Props) {
         return animator_func()
     }, [])
 
-    return (
-        React.cloneElement(children, {
-            ref: containerRef,
-            className: [
-                children.props.className, 
-                "text-parentz"
-            ].filter(Boolean).join(" ")
-        })
-    )
+    return React.cloneElement(children, {
+        ref: containerRef,
+        className: [
+            children.props.className, 
+            "text-parentz"
+        ].filter(Boolean).join(" ")
+    })
 }
 
 export default TextColorFade
