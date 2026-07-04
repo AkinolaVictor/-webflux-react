@@ -3,9 +3,6 @@
 import { TextAnimationTemplate, TextRevealByHeight } from "."
 
 function Test() {
-    // justSayHello
-    // TextAnimationTemplate
-    // TextRevealByHeight
     
     return (
         <>
